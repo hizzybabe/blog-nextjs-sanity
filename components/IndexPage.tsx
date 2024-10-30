@@ -15,7 +15,7 @@ export default function IndexPage(props: IndexPageProps) {
   const { preview, loading, settings, posts } = props
   
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-dark">
       <Navbar />
       <main>
         <BlogContainer>
