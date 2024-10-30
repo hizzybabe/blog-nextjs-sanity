@@ -23,3 +23,15 @@
 .portableText a:hover {
   @apply text-primary/80;
 }
+
+.portableText table {
+  @apply w-full border-collapse;
+}
+
+.portableText th {
+  @apply bg-primary text-dark font-bold p-2;
+}
+
+.portableText td {
+  @apply border border-primary/20 p-2 text-light;
+}
