@@ -14,23 +14,24 @@ export default function CoverImage(props: CoverImageProps) {
   const { title, slug, image: source, priority } = props
   const image = source?.asset?._ref ? (
     <div
-      className={cn('shadow-small max-w-3xl mx-auto relative aspect-[16/9] overflow-hidden', {
+      className={cn('shadow-small max-w-3xl mx-auto relative', {
         'transition-shadow duration-200 hover:shadow-medium': slug,
       })}
     >
-      <Image
-        className="object-contain"
-        width={1200}
-        height={675}
-        alt={title || 'Cover Image'}
-        src={urlForImage(source)
-          .width(1200)
-          .height(675)
-          .fit('clip')
-          .url()}
-        sizes="(max-width: 768px) 100vw, 48rem"
-        priority={priority}
-      />
+      <div className="aspect-[16/9] relative">
+        <Image
+          className="object-contain"
+          fill
+          alt={title || 'Cover Image'}
+          src={urlForImage(source)
+            .width(1200)
+            .height(675)
+            .fit('max')
+            .url()}
+          sizes="(max-width: 768px) 100vw, 48rem"
+          priority={priority}
+        />
+      </div>
     </div>
   ) : (
     <div style={{ paddingTop: '50%', backgroundColor: '#ddd' }} />
