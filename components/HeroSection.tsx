@@ -8,7 +8,7 @@ export default function HeroSection() {
       <p className="mb-8 text-xl text-gray-600"> 
       Are you overwhelmed by the choice of cloud providers? Let us help you make an informed decision for your next project! Our platform allows you to:
       </p>
-      <ul className="space-y-4 text-lg">
+      <ul className="mb-8 space-y-4 text-lg">
         <li className="flex items-center">
           <span className="mr-3">🔎</span>
           Explore a wide range of cloud providers across different regions.

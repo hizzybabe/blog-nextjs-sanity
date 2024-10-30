@@ -12,29 +12,11 @@ export default function Navbar() {
           </div>
           <div className="hidden md:block">
             <div className="flex items-center space-x-8">
-              <Link href="/cloud-index" className="text-gray-700 hover:text-gray-900">
-                Cloud Index
+              <Link href="/studio" className="text-gray-700 hover:text-gray-900">
+                Cloud Solutions
               </Link>
-              <Link href="/services" className="text-gray-700 hover:text-gray-900">
-                Services
-              </Link>
-              <Link href="/regions" className="text-gray-700 hover:text-gray-900">
-                Regions
-              </Link>
-              <Link href="/storage" className="text-gray-700 hover:text-gray-900">
-                Object Storage
-              </Link>
-              <Link href="/compute" className="text-gray-700 hover:text-gray-900">
-                Compute Prices
-              </Link>
-              <Link href="/egress" className="text-gray-700 hover:text-gray-900">
-                Egress Costs
-              </Link>
-              <Link href="/gpus" className="text-gray-700 hover:text-gray-900">
-                Cloud GPUs
-              </Link>
-              <Link href="/compare" className="text-gray-700 hover:text-gray-900">
-                Compare
+              <Link href="/add-service" className="text-gray-700 hover:text-gray-900">
+                Add Your Service
               </Link>
             </div>
           </div>
