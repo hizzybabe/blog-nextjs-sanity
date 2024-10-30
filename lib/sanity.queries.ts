@@ -52,7 +52,7 @@ export interface Post {
   _id: string
   title: string
   slug: string
-  type: 'cloud' | 'blog' | 'tools'
+  type: 'cloud provider profile' | 'blog post' | 'webdev tools'
   coverImage?: any
   date: string
   excerpt?: string

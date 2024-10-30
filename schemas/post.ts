@@ -98,13 +98,13 @@ export default defineType({
       type: 'string',
       options: {
         list: [
-          { title: 'Cloud Provider Profile', value: 'cloud' },
-          { title: 'Blog Post', value: 'blog' },
-          { title: 'Web Development Tool', value: 'tools' }
+          { title: 'Cloud Provider Profile', value: 'cloud provider profile' },
+          { title: 'Blog Post', value: 'blog post' },
+          { title: 'WebDev Tools', value: 'webdev tools' }
         ],
       },
       validation: (rule) => rule.required(),
-      initialValue: 'cloud'
+      initialValue: 'cloud provider profile'
     }),
     defineField({
       name: 'tags',
