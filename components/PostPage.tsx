@@ -7,6 +7,7 @@ import PostHeader from 'components/PostHeader'
 import PostPageHead from 'components/PostPageHead'
 import PostTitle from 'components/PostTitle'
 import SectionSeparator from 'components/SectionSeparator'
+import Navbar from 'components/Navbar'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 import Error from 'next/error'
@@ -34,7 +35,7 @@ export default function PostPage(props: PostPageProps) {
   return (
     <>
       <PostPageHead settings={settings} post={post} />
-
+      <Navbar />
       <Layout preview={preview} loading={loading}>
         <Container>
           <BlogHeader title={title} level={2} />
