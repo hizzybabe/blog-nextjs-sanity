@@ -35,7 +35,7 @@ export default function PostPage(props: PostPageProps) {
   return (
     <>
       <PostPageHead settings={settings} post={post} />
-      <div className="min-h-screen bg-dark text-light">
+      <div className="flex min-h-screen flex-col bg-dark">
         <Navbar />
         <Layout preview={preview} loading={loading}>
           <Container>
