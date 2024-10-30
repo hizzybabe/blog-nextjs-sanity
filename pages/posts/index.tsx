@@ -3,6 +3,7 @@ import { getAllPosts, getClient, getSettings } from 'lib/sanity.client'
 import { Post, Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import BlogContainer from 'components/BlogContainer'
 import Navbar from 'components/Navbar'
 import { useState } from 'react'
@@ -16,7 +17,7 @@ interface PostsPageProps {
 export default function PostsPage({ posts, settings }: PostsPageProps) {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const router = useRouter()
-  const postType = router.query.type as string || 'cloud'
+  const postType = (router.query.type as string) ?? 'cloud'
   
   const filteredPosts = posts.filter(post => {
     if (selectedTag) {
