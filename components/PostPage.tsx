@@ -35,35 +35,37 @@ export default function PostPage(props: PostPageProps) {
   return (
     <>
       <PostPageHead settings={settings} post={post} />
-      <Navbar />
-      <Layout preview={preview} loading={loading}>
-        <Container>
-          <BlogHeader title={title} level={2} />
-          {preview && !post ? (
-            <PostTitle>Loading…</PostTitle>
-          ) : (
-            <>
-              <article>
-                <PostHeader
-                  title={post.title}
-                  coverImage={post.coverImage}
-                  date={post.date}
-                  author={post.author}
-                  slug={post.slug}
-                  tags={post.tags}
-                />
-                <PostBody 
-                  content={post.content} 
-                  keyFeatures={post.keyFeatures}
-                  pricing={post.pricing}
-                />
-              </article>
-              <SectionSeparator />
-              {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
-            </>
-          )}
-        </Container>
-      </Layout>
+      <div className="min-h-screen bg-dark text-light">
+        <Navbar />
+        <Layout preview={preview} loading={loading}>
+          <Container>
+            <BlogHeader title={title} level={2} />
+            {preview && !post ? (
+              <PostTitle>Loading…</PostTitle>
+            ) : (
+              <>
+                <article>
+                  <PostHeader
+                    title={post.title}
+                    coverImage={post.coverImage}
+                    date={post.date}
+                    author={post.author}
+                    slug={post.slug}
+                    tags={post.tags}
+                  />
+                  <PostBody 
+                    content={post.content} 
+                    keyFeatures={post.keyFeatures}
+                    pricing={post.pricing}
+                  />
+                </article>
+                <SectionSeparator />
+                {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
+              </>
+            )}
+          </Container>
+        </Layout>
+      </div>
     </>
   )
 }

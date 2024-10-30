@@ -51,7 +51,7 @@ export default memo(function IntroTemplate() {
             alt="An illustration of a browser window, a terminal window, the Sanity.io logo and the NextJS logo"
             src={cover}
           />
-          <div className="mt-10 hidden px-14 text-xs text-gray-700 md:block">
+          <div className="mt-10 hidden px-14 text-xs text-secondary md:block">
             <RemoveBlock url={removeBlockURL} />
           </div>
         </div>
@@ -189,7 +189,7 @@ export default memo(function IntroTemplate() {
               }
             />
           </ol>
-          <div className="text-center text-xs text-gray-700 md:invisible">
+          <div className="text-center text-xs text-secondary md:invisible">
             <RemoveBlock url={removeBlockURL} />
           </div>
         </div>

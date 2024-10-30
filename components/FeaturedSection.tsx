@@ -32,12 +32,12 @@ export default function FeaturedSection({ posts }: FeaturedSectionProps) {
   return (
     <div className="py-16">
       <div className="mb-8 flex items-center">
-        <h2 className="text-2xl font-bold">Featured today</h2>
-        <span className="ml-2 text-gray-500">Updates every 2 days</span>
+        <h2 className="text-2xl font-bold text-primary">Featured today</h2>
+        <span className="ml-2 text-secondary">Updates every 2 days</span>
       </div>
       <Link 
         href={`/posts/${featuredPost.slug}`}
-        className="block rounded-lg border border-gray-200 p-6 hover:border-gray-300"
+        className="block rounded-lg border border-primary/20 p-6 hover:border-primary/40 bg-dark/50"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center">
@@ -56,14 +56,14 @@ export default function FeaturedSection({ posts }: FeaturedSectionProps) {
               </div>
             )}
             <div>
-              <h3 className="font-semibold">{featuredPost.title}</h3>
-              <p className="text-gray-600 line-clamp-2">
+              <h3 className="font-semibold text-primary">{featuredPost.title}</h3>
+              <p className="text-secondary line-clamp-2">
                 {featuredPost.excerpt}
               </p>
             </div>
           </div>
           <div className="ml-4">
-            <span className="rounded-lg border border-gray-200 px-4 py-2 hover:bg-gray-50">
+            <span className="rounded-lg border border-primary/20 px-4 py-2 text-primary hover:bg-primary/10">
               Read more
             </span>
           </div>
