@@ -12,8 +12,14 @@ export default function Navbar() {
           </div>
           <div className="hidden md:block">
             <div className="flex items-center space-x-8">
-              <Link href="/posts" className="text-secondary hover:text-primary transition-colors">
+              <Link href="/posts?type=cloud" className="text-secondary hover:text-primary transition-colors">
                 Cloud Solutions
+              </Link>
+              <Link href="/posts?type=blog" className="text-secondary hover:text-primary transition-colors">
+                Blog
+              </Link>
+              <Link href="/posts?type=tools" className="text-secondary hover:text-primary transition-colors">
+                Tools
               </Link>
               <Link href="/add-service" className="text-secondary hover:text-primary transition-colors">
                 Add Your Service

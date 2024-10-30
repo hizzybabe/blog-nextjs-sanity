@@ -93,24 +93,58 @@ export default defineType({
       to: [{ type: authorType.name }],
     }),
     defineField({
+      name: 'type',
+      title: 'Post Type',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Cloud Provider Profile', value: 'cloud' },
+          { title: 'Blog Post', value: 'blog' },
+          { title: 'Web Development Tool', value: 'tools' }
+        ],
+      },
+      validation: (rule) => rule.required(),
+      initialValue: 'cloud'
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
-      of: [
-        {
-          type: 'string',
-        },
-      ],
+      of: [{ type: 'string' }],
       options: {
         layout: 'tags',
-        list: [
-          { title: 'Cloud', value: 'cloud' },
-          { title: 'Web Hosting', value: 'web-hosting' },
-          { title: 'VPS', value: 'vps' },
-          { title: 'Managed', value: 'managed' },
-          { title: 'WordPress', value: 'wordpress' },
-          { title: 'Reseller', value: 'reseller' },
-        ],
+        list: async (props) => {
+          const { parent } = props
+          const postType = parent?.type
+
+          switch(postType) {
+            case 'cloud':
+              return [
+                { title: 'Cloud', value: 'cloud' },
+                { title: 'Web Hosting', value: 'web-hosting' },
+                { title: 'VPS', value: 'vps' },
+                { title: 'Managed', value: 'managed' },
+                { title: 'WordPress', value: 'wordpress' },
+                { title: 'Reseller', value: 'reseller' },
+              ]
+            case 'blog':
+              return [
+                { title: 'Tutorial', value: 'tutorial' },
+                { title: 'Guide', value: 'guide' },
+                { title: 'Opinion', value: 'opinion' },
+                { title: 'News', value: 'news' },
+              ]
+            case 'tools':
+              return [
+                { title: 'Development', value: 'development' },
+                { title: 'Testing', value: 'testing' },
+                { title: 'Deployment', value: 'deployment' },
+                { title: 'Monitoring', value: 'monitoring' },
+              ]
+            default:
+              return []
+          }
+        }
       },
       validation: (rule) => rule.unique(),
     }),

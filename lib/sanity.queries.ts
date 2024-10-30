@@ -50,20 +50,16 @@ export interface Author {
 
 export interface Post {
   _id: string
-  title?: string
+  title: string
+  slug: string
+  type: 'cloud' | 'blog' | 'tools'
   coverImage?: any
-  date?: string
-  _updatedAt?: string
+  date: string
   excerpt?: string
   author?: Author
-  slug?: string
-  content?: any
   tags?: string[]
   keyFeatures?: string[]
-  pricing?: {
-    configuration: string
-    pricePerMonth: number
-  }[]
+  pricing?: string
 }
 
 export interface Settings {

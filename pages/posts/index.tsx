@@ -15,19 +15,49 @@ interface PostsPageProps {
 
 export default function PostsPage({ posts, settings }: PostsPageProps) {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
+  const router = useRouter()
+  const postType = router.query.type as string || 'cloud'
   
-  const filteredPosts = selectedTag
-    ? posts.filter((post) => post.tags?.includes(selectedTag))
-    : posts
+  const filteredPosts = posts.filter(post => {
+    if (selectedTag) {
+      return post.type === postType && post.tags?.includes(selectedTag)
+    }
+    return post.type === postType
+  })
+
+  const getPageTitle = () => {
+    switch(postType) {
+      case 'cloud':
+        return 'Cloud Solutions'
+      case 'blog':
+        return 'Blog Posts'
+      case 'tools':
+        return 'Web Development Tools'
+      default:
+        return 'Posts'
+    }
+  }
+
+  const getTagOptions = () => {
+    switch(postType) {
+      case 'cloud':
+        return ['cloud', 'web-hosting', 'vps', 'managed', 'wordpress', 'reseller']
+      case 'blog':
+        return ['tutorial', 'guide', 'opinion', 'news']
+      case 'tools':
+        return ['development', 'testing', 'deployment', 'monitoring']
+      default:
+        return []
+    }
+  }
 
   return (
     <div className="min-h-screen bg-dark">
       <Navbar />
       <BlogContainer>
         <div className="py-20">
-          <h1 className="mb-8 text-4xl font-bold text-primary">Cloud Solutions</h1>
+          <h1 className="mb-8 text-4xl font-bold text-primary">{getPageTitle()}</h1>
           
-          {/* Tag filter buttons */}
           <div className="flex flex-wrap gap-2 mb-8">
             <button
               onClick={() => setSelectedTag(null)}
@@ -37,7 +67,7 @@ export default function PostsPage({ posts, settings }: PostsPageProps) {
             >
               All
             </button>
-            {['cloud', 'web-hosting', 'vps', 'managed', 'wordpress', 'reseller'].map((tag) => (
+            {getTagOptions().map((tag) => (
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag)}
