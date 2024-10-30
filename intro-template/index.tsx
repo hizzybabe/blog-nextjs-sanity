@@ -44,7 +44,7 @@ export default memo(function IntroTemplate() {
   }
 
   return (
-    <div className="flex justify-center border border-gray-200 bg-gray-50">
+    <div className="flex justify-center border border-primary/20 bg-dark/50">
       <div className="mb-8 mt-20 grid max-w-screen-2xl grid-cols-1 gap-y-20 md:grid-cols-2 md:gap-x-16 md:gap-y-32 lg:gap-x-32 ">
         <div className="self-center">
           <Image
@@ -102,7 +102,7 @@ export default memo(function IntroTemplate() {
 
                   <div className="mt-3">
                     <Link
-                      className="inline-flex rounded bg-primary px-4 py-2 text-dark hover:bg-primary/80"
+                      className="inline-flex rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-800"
                       href={createPostURL}
                     >
                       Go to Sanity Studio
