@@ -102,7 +102,7 @@ export default memo(function IntroTemplate() {
 
                   <div className="mt-3">
                     <Link
-                      className="inline-flex rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-800"
+                      className="inline-flex rounded bg-primary px-4 py-2 text-dark hover:bg-primary/80"
                       href={createPostURL}
                     >
                       Go to Sanity Studio
