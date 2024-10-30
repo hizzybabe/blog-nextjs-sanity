@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { urlForImage } from '@/lib/sanity'
+import { urlForImage } from 'lib/sanity.image'
 
 export interface Post {
   slug: string
