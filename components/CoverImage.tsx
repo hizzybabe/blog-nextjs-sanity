@@ -18,20 +18,19 @@ export default function CoverImage(props: CoverImageProps) {
         'transition-shadow duration-200 hover:shadow-medium': slug,
       })}
     >
-      <div className="aspect-[16/9] relative">
-        <Image
-          className="object-contain"
-          fill
-          alt={title || 'Cover Image'}
-          src={urlForImage(source)
-            .width(1200)
-            .height(675)
-            .fit('max')
-            .url()}
-          sizes="(max-width: 768px) 100vw, 48rem"
-          priority={priority}
-        />
-      </div>
+      <Image
+        className="w-full h-auto"
+        width={1200}
+        height={675}
+        alt={title || 'Cover Image'}
+        src={urlForImage(source)
+          .width(1200)
+          .fit('clip')
+          .auto('format')
+          .url()}
+        sizes="(max-width: 768px) 100vw, 48rem"
+        priority={priority}
+      />
     </div>
   ) : (
     <div style={{ paddingTop: '50%', backgroundColor: '#ddd' }} />
