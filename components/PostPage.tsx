@@ -39,30 +39,32 @@ export default function PostPage(props: PostPageProps) {
         <Navbar />
         <Layout preview={preview} loading={loading}>
           <Container>
-            <BlogHeader title={title} level={2} />
-            {preview && !post ? (
-              <PostTitle>Loading…</PostTitle>
-            ) : (
-              <>
-                <article>
-                  <PostHeader
-                    title={post.title}
-                    coverImage={post.coverImage}
-                    date={post.date}
-                    author={post.author}
-                    slug={post.slug}
-                    tags={post.tags}
-                  />
-                  <PostBody 
-                    content={post.content} 
-                    keyFeatures={post.keyFeatures}
-                    pricing={post.pricing}
-                  />
-                </article>
-                <SectionSeparator />
-                {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
-              </>
-            )}
+            <div className="text-light">
+              <BlogHeader title={title} level={2} />
+              {preview && !post ? (
+                <PostTitle>Loading…</PostTitle>
+              ) : (
+                <>
+                  <article>
+                    <PostHeader
+                      title={post.title}
+                      coverImage={post.coverImage}
+                      date={post.date}
+                      author={post.author}
+                      slug={post.slug}
+                      tags={post.tags}
+                    />
+                    <PostBody 
+                      content={post.content} 
+                      keyFeatures={post.keyFeatures}
+                      pricing={post.pricing}
+                    />
+                  </article>
+                  <SectionSeparator />
+                  {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
+                </>
+              )}
+            </div>
           </Container>
         </Layout>
       </div>
