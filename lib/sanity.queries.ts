@@ -9,6 +9,7 @@ const postFields = groq`
   coverImage,
   "slug": slug.current,
   "author": author->{name, picture},
+  type,
   tags,
   keyFeatures,
   pricing,
