@@ -15,32 +15,25 @@ export interface FeaturedSectionProps {
 }
 
 export default function FeaturedSection({ posts }: FeaturedSectionProps) {
-  const [featuredPost, setFeaturedPost] = useState<Post | null>(null)
+  // Use current date as seed for pseudo-random selection
+  const today = new Date()
+  const daysSinceEpoch = Math.floor(today.getTime() / (1000 * 60 * 60 * 24))
+  
+  const getFeaturePost = () => {
+    if (posts.length === 0) return null
+    const index = daysSinceEpoch % posts.length
+    return posts[index]
+  }
 
-  useEffect(() => {
-    // Function to select random post
-    const selectRandomPost = () => {
-      if (posts.length === 0) return
-      const randomIndex = Math.floor(Math.random() * posts.length)
-      setFeaturedPost(posts[randomIndex])
-    }
-
-    // Select initial post
-    selectRandomPost()
-
-    // Update featured post every 30 seconds
-    const interval = setInterval(selectRandomPost, 30000)
-
-    return () => clearInterval(interval)
-  }, [posts])
-
+  const featuredPost = getFeaturePost()
+  
   if (!featuredPost) return null
 
   return (
     <div className="py-16">
       <div className="mb-8 flex items-center">
         <h2 className="text-2xl font-bold">Featured today</h2>
-        <span className="ml-2 text-gray-500">Updates every 30s</span>
+        <span className="ml-2 text-gray-500">Updates every 2 days</span>
       </div>
       <Link 
         href={`/posts/${featuredPost.slug}`}
