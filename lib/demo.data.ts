@@ -1,6 +1,6 @@
 // All the demo data that used as fallbacks when there's nothing in the dataset yet
 
-export const title = TechFocus.Pro'
+export const title = 'TechFocus.Pro'
 
 export const description = [
   {
