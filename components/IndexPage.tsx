@@ -8,10 +8,11 @@ export interface IndexPageProps {
   preview?: boolean
   loading?: boolean
   settings: Settings
+  posts: Post[]
 }
 
 export default function IndexPage(props: IndexPageProps) {
-  const { preview, loading, settings } = props
+  const { preview, loading, settings, posts } = props
   
   return (
     <div className="min-h-screen bg-white">
@@ -19,7 +20,7 @@ export default function IndexPage(props: IndexPageProps) {
       <main>
         <BlogContainer>
           <HeroSection />
-          <FeaturedSection />
+          <FeaturedSection posts={posts} />
         </BlogContainer>
       </main>
     </div>
