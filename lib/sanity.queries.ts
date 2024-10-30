@@ -10,6 +10,8 @@ const postFields = groq`
   "slug": slug.current,
   "author": author->{name, picture},
   tags,
+  keyFeatures,
+  pricing,
 `
 
 export const settingsQuery = groq`*[_type == "settings"][0]`
@@ -57,6 +59,11 @@ export interface Post {
   slug?: string
   content?: any
   tags?: string[]
+  keyFeatures?: string[]
+  pricing?: {
+    configuration: string
+    pricePerMonth: number
+  }[]
 }
 
 export interface Settings {

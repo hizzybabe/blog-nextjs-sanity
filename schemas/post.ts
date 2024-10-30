@@ -114,6 +114,39 @@ export default defineType({
       },
       validation: (rule) => rule.unique(),
     }),
+    defineField({
+      name: 'keyFeatures',
+      title: 'Key Features',
+      type: 'array',
+      of: [{ type: 'string' }],
+      validation: (rule) => rule.max(3).error('Maximum of 3 key features allowed'),
+      description: 'Add up to 3 key features of this cloud service',
+    }),
+    defineField({
+      name: 'pricing',
+      title: 'Pricing',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'configuration',
+              title: 'Configuration',
+              type: 'string',
+              description: 'e.g., "2 CPU, 4GB RAM, 80GB SSD"'
+            },
+            {
+              name: 'pricePerMonth',
+              title: 'Price per Month',
+              type: 'number',
+              description: 'Price in USD'
+            }
+          ]
+        }
+      ],
+      validation: (rule) => rule.required(),
+    }),
   ],
   preview: {
     select: {
