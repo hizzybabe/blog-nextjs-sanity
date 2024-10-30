@@ -35,3 +35,16 @@
 .portableText td {
   @apply border border-primary/20 p-2 text-light;
 }
+
+.portableText ul {
+  @apply my-6 text-light list-disc pl-5;
+}
+
+.portableText ol {
+  @apply my-6 text-light list-decimal pl-5;
+}
+
+.portableText li {
+  @apply my-2;
+  list-style-position: outside;
+}
