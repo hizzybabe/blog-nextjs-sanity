@@ -11,6 +11,7 @@ export default function PostPreview({
   excerpt,
   author,
   slug,
+  keyFeatures,
 }: Omit<Post, '_id'>) {
   return (
     <div>
@@ -32,6 +33,16 @@ export default function PostPreview({
       </div>
       {excerpt && (
         <p className="mb-4 text-lg leading-relaxed text-pretty">{excerpt}</p>
+      )}
+      {keyFeatures && keyFeatures.length > 0 && (
+        <div className="mb-4">
+          <h4 className="text-lg font-semibold mb-2">Key Features:</h4>
+          <ul className="list-disc pl-5">
+            {keyFeatures.map((feature, index) => (
+              <li key={index} className="text-gray-600">{feature}</li>
+            ))}
+          </ul>
+        </div>
       )}
       {author && <Avatar name={author.name} picture={author.picture} />}
     </div>
