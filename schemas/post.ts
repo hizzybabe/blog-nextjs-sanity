@@ -118,7 +118,7 @@ export default defineType({
           const postType = parent?.type
 
           switch(postType) {
-            case 'cloud':
+            case 'cloud provider profile':
               return [
                 { title: 'Cloud', value: 'cloud' },
                 { title: 'Web Hosting', value: 'web-hosting' },
@@ -127,14 +127,14 @@ export default defineType({
                 { title: 'WordPress', value: 'wordpress' },
                 { title: 'Reseller', value: 'reseller' },
               ]
-            case 'blog':
+            case 'blog post':
               return [
                 { title: 'Tutorial', value: 'tutorial' },
                 { title: 'Guide', value: 'guide' },
                 { title: 'Opinion', value: 'opinion' },
                 { title: 'News', value: 'news' },
               ]
-            case 'tools':
+            case 'webdev tools':
               return [
                 { title: 'Development', value: 'development' },
                 { title: 'Testing', value: 'testing' },
