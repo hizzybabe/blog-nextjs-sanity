@@ -92,6 +92,28 @@ export default defineType({
       type: 'reference',
       to: [{ type: authorType.name }],
     }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+        },
+      ],
+      options: {
+        layout: 'tags',
+        list: [
+          { title: 'Cloud', value: 'cloud' },
+          { title: 'Web Hosting', value: 'web-hosting' },
+          { title: 'VPS', value: 'vps' },
+          { title: 'Managed', value: 'managed' },
+          { title: 'WordPress', value: 'wordpress' },
+          { title: 'Reseller', value: 'reseller' },
+        ],
+      },
+      validation: (rule) => rule.unique(),
+    }),
   ],
   preview: {
     select: {

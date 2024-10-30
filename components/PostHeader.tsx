@@ -28,3 +28,20 @@ export default function PostHeader(
     </>
   )
 }
+
+function TagList({ tags }: { tags?: string[] }) {
+  if (!tags || tags.length === 0) return null
+  
+  return (
+    <div className="flex flex-wrap gap-2 mt-4">
+      {tags.map((tag) => (
+        <span
+          key={tag}
+          className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+  )
+}
