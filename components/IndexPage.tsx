@@ -1,4 +1,4 @@
-import Container from 'components/Container'
+import BlogContainer from 'components/BlogContainer'
 import Navbar from 'components/Navbar'
 import HeroSection from 'components/HeroSection'
 import FeaturedSection from 'components/FeaturedSection'
@@ -17,10 +17,10 @@ export default function IndexPage(props: IndexPageProps) {
     <div className="min-h-screen bg-white">
       <Navbar />
       <main>
-        <Container>
+        <BlogContainer>
           <HeroSection />
           <FeaturedSection />
-        </Container>
+        </BlogContainer>
       </main>
     </div>
   )
