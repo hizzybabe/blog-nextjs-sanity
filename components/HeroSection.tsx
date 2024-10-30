@@ -2,7 +2,7 @@ export default function HeroSection() {
   return (
     <div className="py-20">
       <h1 className="mb-8 text-6xl font-bold tracking-tight text-primary">
-        Choosing the Right Cloud Provider<br />
+        Choosing the Right <span className="text-blue-400">Cloud Provider</span><br />
         for your next project
       </h1>
       <p className="mb-8 text-xl text-secondary"> 
