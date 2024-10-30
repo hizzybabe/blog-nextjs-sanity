@@ -12,7 +12,7 @@ export default function Navbar() {
           </div>
           <div className="hidden md:block">
             <div className="flex items-center space-x-8">
-              <Link href="/studio" className="text-gray-700 hover:text-gray-900">
+              <Link href="/posts" className="text-gray-700 hover:text-gray-900">
                 Cloud Solutions
               </Link>
               <Link href="/add-service" className="text-gray-700 hover:text-gray-900">
