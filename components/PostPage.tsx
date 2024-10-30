@@ -49,6 +49,8 @@ export default function PostPage(props: PostPageProps) {
                   coverImage={post.coverImage}
                   date={post.date}
                   author={post.author}
+                  slug={post.slug}
+                  tags={post.tags}
                 />
                 <PostBody 
                   content={post.content} 

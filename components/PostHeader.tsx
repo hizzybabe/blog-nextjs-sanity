@@ -5,9 +5,9 @@ import PostTitle from 'components/PostTitle'
 import type { Post } from 'lib/sanity.queries'
 
 export default function PostHeader(
-  props: Pick<Post, 'title' | 'coverImage' | 'date' | 'author' | 'slug'>,
+  props: Pick<Post, 'title' | 'coverImage' | 'date' | 'author' | 'slug' | 'tags'>,
 ) {
-  const { title, coverImage, date, author, slug } = props
+  const { title, coverImage, date, author, slug, tags } = props
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -24,6 +24,7 @@ export default function PostHeader(
         <div className="mb-6 text-lg">
           <Date dateString={date} />
         </div>
+        <TagList tags={tags} />
       </div>
     </>
   )
@@ -33,7 +34,7 @@ function TagList({ tags }: { tags?: string[] }) {
   if (!tags || tags.length === 0) return null
   
   return (
-    <div className="flex flex-wrap gap-2 mt-4">
+    <div className="flex flex-wrap gap-2 mt-4 mb-6">
       {tags.map((tag) => (
         <span
           key={tag}
