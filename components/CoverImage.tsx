@@ -14,16 +14,20 @@ export default function CoverImage(props: CoverImageProps) {
   const { title, slug, image: source, priority } = props
   const image = source?.asset?._ref ? (
     <div
-      className={cn('shadow-small max-w-3xl mx-auto', {
+      className={cn('shadow-small max-w-3xl mx-auto relative aspect-[16/9] overflow-hidden', {
         'transition-shadow duration-200 hover:shadow-medium': slug,
       })}
     >
       <Image
-        className="h-auto w-full"
-        width={2000}
-        height={1000}
-        alt=""
-        src={urlForImage(source).height(1000).width(2000).url()}
+        className="object-contain"
+        width={1200}
+        height={675}
+        alt={title || 'Cover Image'}
+        src={urlForImage(source)
+          .width(1200)
+          .height(675)
+          .fit('clip')
+          .url()}
         sizes="(max-width: 768px) 100vw, 48rem"
         priority={priority}
       />
