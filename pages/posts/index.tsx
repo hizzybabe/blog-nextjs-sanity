@@ -22,19 +22,24 @@ export default function PostsPage({ posts, settings }: PostsPageProps) {
   const filteredPosts = posts.filter(post => {
     if (selectedTag) {
       return (
-        (postType === 'tools' && post.type === 'webdev tools' || 
-         (postType === 'cloud' && post.type === 'cloud provider profile')) && 
-        post.tags?.includes(selectedTag)
-      )
+        (postType === 'tools' && post.type === 'webdev tools') || 
+        (postType === 'cloud' && post.type === 'cloud provider profile') ||
+        (postType === 'blog' && post.type === 'blog post')
+      ) && post.tags?.includes(selectedTag)
     }
-    return (postType === 'tools' && post.type === 'webdev tools') || 
-           (postType === 'cloud' && post.type === 'cloud provider profile')
+    return (
+      (postType === 'tools' && post.type === 'webdev tools') || 
+      (postType === 'cloud' && post.type === 'cloud provider profile') ||
+      (postType === 'blog' && post.type === 'blog post')
+    )
   })
 
   const getPageTitle = () => {
     switch(postType) {
       case 'tools':
         return 'WebDev Tools'
+      case 'blog':
+        return 'Blog Posts'
       default:
         return 'Cloud Solutions'
     }
@@ -44,6 +49,8 @@ export default function PostsPage({ posts, settings }: PostsPageProps) {
     switch(postType) {
       case 'tools':
         return ['development', 'testing', 'deployment', 'monitoring']
+      case 'blog':
+        return ['tutorial', 'guide', 'opinion', 'news']
       default:
         return ['cloud', 'web-hosting', 'vps', 'managed', 'wordpress', 'reseller']
     }
