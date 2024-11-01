@@ -14,24 +14,34 @@ interface PostsPageProps {
   settings: Settings
 }
 
- export default function PostsPage({ posts, settings }: PostsPageProps) {
+export default function PostsPage({ posts, settings }: PostsPageProps) {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const router = useRouter()
   const postType = (router.query.type as string) ?? 'cloud'
   
   const filteredPosts = posts.filter(post => {
     if (selectedTag) {
-      return post.type === 'cloud provider profile' && post.tags?.includes(selectedTag)
+      return post.type === `${postType} tools` && post.tags?.includes(selectedTag)
     }
-    return post.type === 'cloud provider profile'
+    return post.type === `${postType} tools`
   })
 
   const getPageTitle = () => {
-    return 'Cloud Solutions'
+    switch(postType) {
+      case 'tools':
+        return 'WebDev Tools'
+      default:
+        return 'Cloud Solutions'
+    }
   }
 
   const getTagOptions = () => {
-    return ['cloud', 'web-hosting', 'vps', 'managed', 'wordpress', 'reseller']
+    switch(postType) {
+      case 'tools':
+        return ['development', 'testing', 'deployment', 'monitoring']
+      default:
+        return ['cloud', 'web-hosting', 'vps', 'managed', 'wordpress', 'reseller']
+    }
   }
 
   return (
