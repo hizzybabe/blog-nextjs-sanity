@@ -48,7 +48,7 @@ export default function PostsPage({ posts, settings }: PostsPageProps) {
   const getTagOptions = () => {
     switch(postType) {
       case 'tools':
-        return ['AI', 'IDE', 'API', 'Control Panel', 'CMS', 'Email', 'Security', 'Storage', 'CDN', 'Monitoring', 'Backup']
+        return ['AI', 'IDE', 'API', 'Control Panel', 'CMS', 'Email', 'Security', 'Storage', 'CDN', 'Monitoring', 'Backup', 'Headless']
       case 'blog':
         return ['tutorial', 'guide', 'opinion', 'news']
       default:
