@@ -21,9 +21,14 @@ export default function PostsPage({ posts, settings }: PostsPageProps) {
   
   const filteredPosts = posts.filter(post => {
     if (selectedTag) {
-      return post.type === `${postType} tools` && post.tags?.includes(selectedTag)
+      return (
+        (post.type === `${postType} tools` || 
+         (postType === 'cloud' && post.type === 'cloud provider profile')) && 
+        post.tags?.includes(selectedTag)
+      )
     }
-    return post.type === `${postType} tools`
+    return post.type === `${postType} tools` || 
+           (postType === 'cloud' && post.type === 'cloud provider profile')
   })
 
   const getPageTitle = () => {
