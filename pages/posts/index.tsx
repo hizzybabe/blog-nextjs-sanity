@@ -20,18 +20,27 @@ export default function PostsPage({ posts, settings }: PostsPageProps) {
   const postType = (router.query.type as string) ?? 'cloud'
   
   const filteredPosts = posts.filter(post => {
-    if (selectedTag) {
-      return (
-        (postType === 'tools' && post.type === 'webdev tools') || 
-        (postType === 'cloud' && post.type === 'cloud provider profile') ||
-        (postType === 'blog' && post.type === 'blog post')
-      ) && post.tags?.includes(selectedTag)
-    }
-    return (
+    const filter = router.query.filter as string
+    
+    // First check post type
+    const typeMatch = (
       (postType === 'tools' && post.type === 'webdev tools') || 
       (postType === 'cloud' && post.type === 'cloud provider profile') ||
       (postType === 'blog' && post.type === 'blog post')
     )
+
+    if (!typeMatch) return false
+
+    // Then check for special filters
+    if (filter === 'vps-under-5' && !post.hasVPSUnder5) return false
+    if (filter === 'hosting-under-3' && !post.hasHostingUnder3) return false
+
+    // Finally check for tag filter
+    if (selectedTag) {
+      return post.tags?.includes(selectedTag)
+    }
+
+    return true
   })
 
   const getPageTitle = () => {
