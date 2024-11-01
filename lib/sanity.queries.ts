@@ -13,6 +13,9 @@ const postFields = groq`
   tags,
   keyFeatures,
   pricing,
+  serverRegions,
+  hasVPSUnder5,
+  hasHostingUnder3,
 `
 
 export const settingsQuery = groq`*[_type == "settings"][0]`
@@ -60,7 +63,13 @@ export interface Post {
   author?: Author
   tags?: string[]
   keyFeatures?: string[]
-  pricing?: string
+  pricing?: {
+    configuration: string
+    pricePerMonth: number
+  }[]
+  serverRegions?: string[]
+  hasVPSUnder5?: boolean
+  hasHostingUnder3?: boolean
 }
 
 export interface Settings {

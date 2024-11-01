@@ -19,6 +19,9 @@ interface PostBodyProps {
     configuration: string
     pricePerMonth: number
   }[]
+  serverRegions?: string[]
+  hasVPSUnder5?: boolean
+  hasHostingUnder3?: boolean
 }
 
 const myPortableTextComponents: Partial<PortableTextReactComponents> = {
@@ -29,7 +32,14 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
   },
 }
 
-export default function PostBody({ content, keyFeatures, pricing }: PostBodyProps) {
+export default function PostBody({ 
+  content, 
+  keyFeatures, 
+  pricing, 
+  serverRegions,
+  hasVPSUnder5,
+  hasHostingUnder3 
+}: PostBodyProps) {
   return (
     <div className={`mx-auto max-w-2xl ${styles.portableText}`}>
       {keyFeatures && keyFeatures.length > 0 && (
@@ -40,6 +50,39 @@ export default function PostBody({ content, keyFeatures, pricing }: PostBodyProp
               <li key={index} className="text-lg">{feature}</li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {serverRegions && serverRegions.length > 0 && (
+        <div className="my-8">
+          <h2 className="text-2xl font-bold mb-4">Server Regions</h2>
+          <div className="flex flex-wrap gap-2">
+            {serverRegions.map((region) => (
+              <span key={region} className="px-3 py-1 bg-primary/10 rounded-full text-primary">
+                {region.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {(hasVPSUnder5 || hasHostingUnder3) && (
+        <div className="my-8">
+          <h2 className="text-2xl font-bold mb-4">Budget-Friendly Options</h2>
+          <div className="space-y-2">
+            {hasVPSUnder5 && (
+              <div className="flex items-center text-green-500">
+                <span className="mr-2">✓</span>
+                <span>VPS plans under $5/month available</span>
+              </div>
+            )}
+            {hasHostingUnder3 && (
+              <div className="flex items-center text-green-500">
+                <span className="mr-2">✓</span>
+                <span>Web hosting plans under $3/month available</span>
+              </div>
+            )}
+          </div>
         </div>
       )}
 

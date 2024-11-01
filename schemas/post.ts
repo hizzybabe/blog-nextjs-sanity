@@ -181,6 +181,39 @@ export default defineType({
       ],
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'serverRegions',
+      title: 'Server Regions',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        layout: 'tags',
+        list: [
+          { title: 'North America', value: 'north-america' },
+          { title: 'South America', value: 'south-america' },
+          { title: 'Europe', value: 'europe' },
+          { title: 'Asia', value: 'asia' },
+          { title: 'Africa', value: 'africa' },
+          { title: 'Oceania', value: 'oceania' },
+        ]
+      },
+      validation: (rule) => rule.unique(),
+      description: 'Select the regions where servers are available'
+    }),
+    defineField({
+      name: 'hasVPSUnder5',
+      title: 'VPS Under $5',
+      type: 'boolean',
+      initialValue: false,
+      description: 'Check if provider offers VPS plans under $5/month'
+    }),
+    defineField({
+      name: 'hasHostingUnder3',
+      title: 'Web Hosting Under $3',
+      type: 'boolean',
+      initialValue: false,
+      description: 'Check if provider offers web hosting plans under $3/month'
+    }),
   ],
   preview: {
     select: {
