@@ -10,6 +10,7 @@ export interface IndexPageProps {
   loading?: boolean
   settings: Settings
   posts: Post[]
+  tools: Tool[]
 }
 
 export default function IndexPage(props: IndexPageProps) {

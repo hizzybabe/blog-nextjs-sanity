@@ -19,7 +19,7 @@ export default function FeaturedTools({ tools }: FeaturedToolsProps) {
   const daysSinceEpoch = Math.floor(today.getTime() / (1000 * 60 * 60 * 24))
 
   const getFeaturedTools = () => {
-    if (tools.length === 0) return []
+    if (!tools || tools.length === 0) return []
     const firstIndex = daysSinceEpoch % tools.length
     const secondIndex = (firstIndex + 1) % tools.length
     return [tools[firstIndex], tools[secondIndex]]

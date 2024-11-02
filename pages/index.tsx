@@ -29,15 +29,17 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
   const { draftMode = false } = ctx
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
-  const [settings, posts = []] = await Promise.all([
+  const [settings, posts = [], tools = []] = await Promise.all([
     getSettings(client),
     getAllPosts(client),
+    getAllTools(client),
   ])
 
   return {
     props: {
       posts,
       settings,
+      tools,
       draftMode,
       token: draftMode ? readToken : '',
     },
