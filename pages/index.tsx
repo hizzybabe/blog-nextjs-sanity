@@ -35,6 +35,8 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
     getAllTools(client),
   ])
 
+  console.log('Fetched tools:', tools)
+
   return {
     props: {
       posts,
