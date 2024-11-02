@@ -2,6 +2,7 @@ import BlogContainer from 'components/BlogContainer'
 import Navbar from 'components/Navbar'
 import HeroSection from 'components/HeroSection'
 import FeaturedSection from 'components/FeaturedSection'
+import FeaturedTools from 'components/FeaturedTools'
 import { Settings } from 'lib/sanity.queries'
 
 export interface IndexPageProps {
@@ -21,6 +22,7 @@ export default function IndexPage(props: IndexPageProps) {
         <BlogContainer>
           <HeroSection />
           <FeaturedSection posts={posts} />
+          <FeaturedTools tools={props.tools} />
         </BlogContainer>
       </main>
     </div>

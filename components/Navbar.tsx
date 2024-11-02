@@ -83,6 +83,9 @@ export default function Navbar() {
               <Link href="/add-service" className="text-secondary hover:text-primary transition-colors">
                 Add Your Service
               </Link>
+              <Link href="/lifetime-deals" className="text-secondary hover:text-primary transition-colors">
+                Lifetime Deals
+              </Link>
             </div>
           </div>
         </div>
