@@ -71,3 +71,15 @@ export async function getPostAndMoreStories(
 ): Promise<{ post: Post; morePosts: Post[] }> {
   return await client.fetch(postAndMoreStoriesQuery, { slug })
 }
+
+const client = createClient({
+  projectId: 'your_project_id',
+  dataset: 'your_dataset',
+  apiVersion: '2023-10-01', // use a specific date or 'v1'
+  useCdn: true, // `false` if you want to ensure fresh data
+})
+
+export async function getAllTools() {
+  const query = `*[_type == "tool"]{slug, title, excerpt, coverImage}`
+  return await client.fetch(query)
+}
