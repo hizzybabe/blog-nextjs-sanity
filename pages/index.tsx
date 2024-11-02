@@ -9,6 +9,7 @@ import type { SharedPageProps } from 'pages/_app'
 interface PageProps extends SharedPageProps {
   posts: Post[]
   settings: Settings
+  tools: Tool[]
 }
 
 interface Query {
@@ -16,13 +17,13 @@ interface Query {
 }
 
 export default function Page(props: PageProps) {
-  const { posts, settings, draftMode } = props
+  const { posts, settings, tools, draftMode } = props
 
   if (draftMode) {
-    return <PreviewIndexPage posts={posts} settings={settings} />
+    return <PreviewIndexPage posts={posts} settings={settings} tools={tools} />
   }
 
-  return <IndexPage posts={posts} settings={settings} />
+  return <IndexPage posts={posts} settings={settings} tools={tools} />
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
