@@ -73,8 +73,8 @@ export async function getPostAndMoreStories(
 }
 
 const client = createClient({
-  projectId: 'your_project_id',
-  dataset: 'your_dataset',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'default_project_id',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'default_dataset',
   apiVersion: '2023-10-01', // use a specific date or 'v1'
   useCdn: true, // `false` if you want to ensure fresh data
 })
