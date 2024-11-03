@@ -24,7 +24,7 @@ export default function IndexPage(props: IndexPageProps) {
         <BlogContainer>
           <HeroSection />
           <FeaturedSection posts={posts} />
-          <FeaturedTools posts={getAllTools} />
+          <FeaturedTools tools={tools} />
         </BlogContainer>
       </main>
     </div>
