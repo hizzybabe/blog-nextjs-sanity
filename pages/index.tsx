@@ -23,7 +23,7 @@ export default function Page(props: PageProps) {
     return <PreviewIndexPage posts={posts} settings={settings} tools={tools} />
   }
 
-  return <IndexPage posts={posts} settings={settings} tools={tools} />
+  return <IndexPage posts={posts} settings={settings} tools={tools.length > 0 ? tools : []} />
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
