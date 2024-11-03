@@ -39,7 +39,7 @@ export default function FeaturedTools({ tools }: FeaturedToolsProps) {
         {featuredTools.map((tool) => (
           <Link 
             key={tool.slug}
-            href={`/tools/${tool.slug}`}
+            href={`/posts/${tool.slug}`}
             className="block rounded-lg border border-primary/20 p-6 hover:border-primary/40 bg-dark/50"
           >
             <div className="flex items-center justify-between">
