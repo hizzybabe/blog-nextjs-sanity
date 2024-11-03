@@ -80,6 +80,6 @@ const client = createClient({
 })
 
 export async function getAllTools() {
-  const query = `*[_type == "tool"]{slug, title, excerpt, coverImage}`
+  const query = `*[_type == "post" && postType == "WebDev Tools"]{slug, title, excerpt, coverImage}`
   return await client.fetch(query)
 }
