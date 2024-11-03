@@ -1,4 +1,3 @@
-import { Tool } from 'components/FeaturedTools'
 import IndexPage from 'components/IndexPage'
 import PreviewIndexPage from 'components/PreviewIndexPage'
 import { readToken } from 'lib/sanity.api'
@@ -37,6 +36,8 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
     getAllTools(client),
   ])
 
+  console.log('Fetched settings:', settings)
+  console.log('Fetched posts:', posts)
   console.log('Fetched tools:', tools)
 
   return {
