@@ -4,6 +4,7 @@ import HeroSection from 'components/HeroSection'
 import FeaturedSection from 'components/FeaturedSection'
 import FeaturedTools, { Tool } from 'components/FeaturedTools'
 import { Post, Settings } from 'lib/sanity.queries'
+import { getAllTools } from 'lib/sanity.client'
 
 export interface IndexPageProps {
   preview?: boolean
@@ -23,7 +24,7 @@ export default function IndexPage(props: IndexPageProps) {
         <BlogContainer>
           <HeroSection />
           <FeaturedSection posts={posts} />
-          <FeaturedTools posts={FeaturedTools} />
+          <FeaturedTools posts={getAllTools} />
         </BlogContainer>
       </main>
     </div>
