@@ -5,6 +5,7 @@ import { getAllPosts, getClient, getSettings, getAllTools } from 'lib/sanity.cli
 import { Post, Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import type { SharedPageProps } from 'pages/_app'
+import FeaturedTools from 'components/FeaturedTools'
 
 interface PageProps extends SharedPageProps {
   posts: Post[]
